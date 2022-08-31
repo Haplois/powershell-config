@@ -4,10 +4,12 @@ $script:Path = [System.IO.Path]::GetDirectoryName($MyInvocation.MyCommand.Source
 $script:LocalApplicationData = [Environment]::GetFolderPath([System.Environment+SpecialFolder]::LocalApplicationData)
 $script:OhMyPosh = Join-Path -Path $script:LocalApplicationData -ChildPath "Programs\oh-my-posh\bin\oh-my-posh.exe"
 $script:Theme = Join-Path -Path $script:Path -ChildPath "theme.json"
+$script:Plugins = Join-Path -Path $script:Path -ChildPath "plugins\Common.ps1"
 
 $script:InitBlock = (& $script:OhMyPosh init powershell --config $script:Theme --strict)
 
 Invoke-Expression -Command ($script:InitBlock)
+Invoke-Expression -Command ($script:Plugins)
 
 Import-Module -Name Terminal-Icons
 if ($host.Name -eq 'ConsoleHost')
