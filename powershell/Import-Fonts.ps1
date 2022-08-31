@@ -45,7 +45,7 @@ try {
             Write-Host "`e[2K`r" -NoNewline
             Write-Host "`e[1m`e[32m$($FontName)`e[0m`e[32m installed."
         }
-        else {
+        else { 
             Write-Host "`e[1m`e[32m$($FontName)`e[0m`e[32m already installed."
         }
     }
