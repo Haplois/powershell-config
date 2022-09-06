@@ -1,8 +1,42 @@
 Set-StrictMode -Version Latest
 
-$global:DrivePath = "c:"
+New-Module -Name "Core" -ScriptBlock {
+    function Get-CurrentRoot ($Path)
+    {
+        if ([string]::IsNullOrEmpty($Path)) 
+        {
+            $Path = $PSScriptRoot
+        }
 
-$script:Path = [System.IO.Path]::GetDirectoryName($PSScriptRoot)
+        $directoryPath = (Get-Item $Path).FullName
+
+        $p = Get-Item $directoryPath | Select-Object -ExpandProperty Target
+        if ([string]::IsNullOrEmpty($p)) 
+        {
+            $p = $directoryPath
+        }
+
+        $item = (Get-Item $p)
+        if ($item.Parent) 
+        {
+            $item.Parent.FullName
+        }
+        else 
+        {
+            $item.FullName
+        }
+    }
+
+    function Edit-Profile {
+        $path = Join-Path -Path (Get-CurrentRoot) -ChildPath "..\"
+        vscode $path
+    }
+
+    Export-ModuleMember -Function Get-CurrentRoot, Edit-Profile
+} | Import-Module
+
+$script:Path = Get-CurrentRoot
+$global:DrivePath = (Get-CurrentRoot).Substring(0, 2).ToLowerInvariant()
 
 Import-Module "$PSScriptRoot\ProcessUtilities.psm1"
 Import-Module "$PSScriptRoot\Repositories.psm1"

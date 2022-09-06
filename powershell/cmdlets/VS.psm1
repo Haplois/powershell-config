@@ -2,7 +2,6 @@ Set-StrictMode -Version Latest
 
 $global:Dev16Root = "$global:DrivePath\programs\vs\app\dev16";
 $global:Dev17Root = "$global:DrivePath\programs\vs\app\dev17";
-$script:Path = [System.IO.Path]::GetDirectoryName($PSScriptRoot)
 
 function Install-VS 
 {
