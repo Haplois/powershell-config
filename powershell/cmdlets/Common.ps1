@@ -27,12 +27,18 @@ New-Module -Name "Core" -ScriptBlock {
         }
     }
 
-    function Edit-Profile {
+    function Edit-Profile 
+    {
         $path = Join-Path -Path (Get-CurrentRoot) -ChildPath "..\"
         vscode $path
     }
 
-    Export-ModuleMember -Function Get-CurrentRoot, Edit-Profile
+    function Remove-History
+    {
+        Remove-Item ((Get-PSReadlineOption).HistorySavePath) -Force
+    }
+
+    Export-ModuleMember -Function Get-CurrentRoot, Edit-Profile, Remove-History
 } | Import-Module
 
 $script:Path = Get-CurrentRoot
