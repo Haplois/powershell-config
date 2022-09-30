@@ -51,12 +51,12 @@ public class DarcCompletion
 
         var tokens = TokenizeCommand(commandName, position);
         
-        // System.IO.File.AppendAllLines(@"C:\Users\medenibaykal\Desktop\darc.txt", new[] {
-        //     $"{commandName}, {wordToComplete}, {position}"
-        // });
-        // System.IO.File.AppendAllLines(@"C:\Users\medenibaykal\Desktop\darc.txt",
-        //     tokens.Select(i => $"  {i.Type} ({i.Value})")
-        // );
+        System.IO.File.AppendAllLines(@"C:\Users\medenibaykal\Desktop\darc.txt", new[] {
+            $"{commandName}, {wordToComplete}, {position}"
+        });
+        System.IO.File.AppendAllLines(@"C:\Users\medenibaykal\Desktop\darc.txt",
+            tokens.Select(i => $"  {i.Type} ({i.Value})")
+        );
 
         var activeToken = tokens.LastOrDefault();
 
