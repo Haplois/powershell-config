@@ -53,9 +53,11 @@ Microsoft.MicrosoftEdgeDevToolsClient
 Microsoft.MicrosoftStickyNotes
 Microsoft.MPEG2VideoExtension
 Microsoft.NET.Native.Framework.1.3
+Microsoft.NET.Native.Framework.1.7
 Microsoft.NET.Native.Framework.2.1
 Microsoft.NET.Native.Framework.2.2
 Microsoft.NET.Native.Runtime.1.4
+Microsoft.NET.Native.Runtime.1.7
 Microsoft.NET.Native.Runtime.2.1
 Microsoft.NET.Native.Runtime.2.2
 Microsoft.OneDriveSync
@@ -115,6 +117,7 @@ Microsoft.XboxIdentityProvider
 Microsoft.XboxSpeechToTextOverlay
 MicrosoftCorporationII.QuickAssist
 MicrosoftCorporationII.WindowsSubsystemForLinux
+MicrosoftWindows.Client             # Feature Exprience Pack from DiCE
 MicrosoftWindows.Client.39072097    # SearchHost
 MicrosoftWindows.Client.CBS
 MicrosoftWindows.Client.Core
